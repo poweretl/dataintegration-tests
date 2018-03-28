@@ -6,6 +6,13 @@
 <mapper namespace="AdhocQueryService">
 
 
+<select id="getInvoiceCount" resultType="hmap">
+
+select count(*) as count from kv_invoices
+
+</select>
+
+
  <resultMap type="java.util.HashMap" id="getUpdatedCustomer">
   <result property="customer_name" column="customer_name"
    javaType="java.lang.String" />
