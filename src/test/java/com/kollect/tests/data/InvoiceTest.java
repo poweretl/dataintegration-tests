@@ -30,7 +30,8 @@ public class InvoiceTest {
       }
       Assert.assertEquals(expectedCount, actualResult);
   }
-  
+
+  @Test
   public void shouldHaveExactQuantityOfInvoices() {
       Long expectedResult = 300000l;
       @SuppressWarnings("unchecked")
