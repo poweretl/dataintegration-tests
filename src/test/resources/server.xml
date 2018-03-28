@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+ <properties resource="server.properties" />
+
+ <!-- <typeAliases> -->
+ <!-- <typeAlias alias="customer" type="com.kollect.etl.model.Customer" /> -->
+ <!-- </typeAliases> -->
+
+ <environments default="postgres">
+  <environment id="postgres">
+   <transactionManager type="JDBC" />
+   <dataSource type="POOLED">
+    <property name="driver" value="${postgres_driver}" />
+    <property name="url" value="${postgres_url}" />
+    <property name="username" value="${postgres_username}" />
+    <property name="password" value="${postgres_password}" />
+   </dataSource>
+  </environment>
+
+  <environment id="postgres_pbk">
+   <transactionManager type="JDBC" />
+   <dataSource type="POOLED">
+    <property name="driver" value="${postgres_driver}" />
+    <property name="url" value="${postgres_pbk_url}" />
+    <property name="username" value="${postgres_username}" />
+    <property name="password" value="${postgres_password}" />
+   </dataSource>
+  </environment>
+
+  <environment id="mahb_prod">
+   <transactionManager type="JDBC" />
+   <dataSource type="POOLED">
+    <property name="driver" value="${postgres_driver}" />
+    <property name="url" value="${postgres_mahb_prod2_url}" />
+    <property name="username" value="${postgres_username}" />
+    <property name="password" value="${postgres_password}" />
+   </dataSource>
+  </environment>
+ </environments>
+
+ <mappers>
+  <mapper resource="AdhocQueryService.xml" />
+ </mappers>
+
+</configuration>
