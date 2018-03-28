@@ -1,11 +1,13 @@
 package com.kollect.tests.data;
 
-//given-when-then
-
 import com.kollect.etl.dataaccess.AbstractSqlSessionProvider;
 import com.kollect.tests.common.DaoProvider;
 import com.kollect.tests.common.ReadWriteServiceProvider;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Map;
 
 public class InvoiceTest {
 
@@ -16,23 +18,22 @@ public class InvoiceTest {
   public void runBeforeEachTest() {
     service = new ReadWriteServiceProvider(new DaoProvider(new AbstractSqlSessionProvider("mahb_prod")));
   }
-  
-  void shouldNotHaveDuplicates(){
+
+  @Test
+  public void shouldNotHaveDuplicates(){
 
   }
   
-  void shouldHaveExactQuantityOfInvoices() {
-
+  public void shouldHaveExactQuantityOfInvoices() {
+      Long expectedResult = 300000l;
+      @SuppressWarnings("unchecked")
+      Map<String, Long> map = (Map<String, Long>) service.executeQuery("getInvoiceCount", null).get(0);
+      Long actualResult = map.get("count");
+      Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
   }
 
-  void shouldBeTraceableToSourceHash(){
+  public void shouldBeTraceableToSourceHash(){
 
   }
-
-
-
-
-  
-  
 
 }

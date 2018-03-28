@@ -54,6 +54,7 @@
 
  <mappers>
   <mapper resource="AdhocQueryService.xml" />
+  <mapper resource="invoiceTestService.xml" />
  </mappers>
 
 </configuration>
