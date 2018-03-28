@@ -1,4 +1,4 @@
-package com.kollect.data;
+package com.kollect.tests.data;
 
 public class CustomerAddressTest {
 
