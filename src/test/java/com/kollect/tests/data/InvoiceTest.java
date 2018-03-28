@@ -21,7 +21,14 @@ public class InvoiceTest {
 
   @Test
   public void shouldNotHaveDuplicates(){
+      Long expectedCount = 0L;
+      Long actualResult = 0L;
 
+      if (service.executeQuery("getInvoiceUnique", null).size() > 0){
+          Map<String, Long> m = (Map) service.executeQuery("getInvoiceUnique", null);
+          actualResult = m.get("count");
+      }
+      Assert.assertEquals(expectedCount, actualResult);
   }
   
   public void shouldHaveExactQuantityOfInvoices() {
