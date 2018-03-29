@@ -43,7 +43,12 @@ public class PaymentTest {
         Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
     }
 
+    @Test
     public void shouldBeTraceableToSourceHash(){
-
+        Long expectedResult = 1L;
+        String source_hash = "4ea4d690a67b992339a871b1e127fbf107c14ce96e1dbd181051d37ddc8bd905";
+        Map<String, Long> map = (Map<String, Long>) service.executeQuery("shouldBeTraceableToSourceHash", source_hash).get(0);
+        Long actualResult = map.get("count");
+        Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
     }
 }
