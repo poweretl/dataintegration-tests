@@ -40,6 +40,7 @@ public class InvoiceTest {
       Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
   }
 
+  @Test
   public void shouldBeTraceableToSourceHash(){
 
   }
