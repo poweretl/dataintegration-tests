@@ -31,7 +31,7 @@ public class InvoiceTest {
           Map<String, Long> m = (Map) service.executeQuery("getInvoiceUnique", null);
           actualResult = m.get("count");
       }
-      Assert.assertEquals(expectedCount, actualResult);
+      Assert.assertEquals("Expected and actual are not same, \n Expected: "+expectedCount +" duplicates\n Got: "+actualResult+" duplicate(s)",expectedCount, actualResult);
   }
 
   @Test
@@ -40,7 +40,7 @@ public class InvoiceTest {
       @SuppressWarnings("unchecked")
       Map<String, Long> map = (Map<String, Long>) service.executeQuery("getInvoiceCount", null).get(0);
       Long actualResult = map.get("count");
-      Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
+      Assert.assertEquals("Expected and actual are not same, \n Expected: "+expectedResult +"\n Got: "+actualResult, expectedResult, actualResult);
   }
 
   @Test
@@ -50,7 +50,7 @@ public class InvoiceTest {
       @SuppressWarnings("unchecked")
       Map<String, Long> map = (Map<String, Long>) service.executeQuery("getInvoiceTrace", source_hash).get(0);
       Long actualResult = map.get("count");
-      Assert.assertEquals("Expected and actual are not same", expectedResult, actualResult);
+      Assert.assertEquals("Expected and actual are not same, \n Expected: "+expectedResult +" (row)\n Got: "+actualResult+" row(s)", expectedResult, actualResult);
   }
 
 }
