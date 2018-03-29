@@ -11,7 +11,17 @@
 
     </select>
 
+
     <select id="getPaymentUnique" resultType="hmap">
 
+    </select>
+
+
+    <select id="shouldBeTraceableToSourceHash" resultType="hmap">
+        SELECT count(transaction_load.source_hash) as count,transaction_load.source_hash  from kv_payments
+        INNER JOIN transaction_load
+        on transaction_load.document_no = kv_payments.document_no
+        WHERE transaction_load.source_hash = #{source_hash}
+        group by transaction_load.source_hash
     </select>
 </mapper>
