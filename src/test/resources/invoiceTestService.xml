@@ -11,7 +11,7 @@
 
     </select>
 
-    <select id="getInvoiceUnique" resultType="hmap  ">
+    <select id="getInvoiceUnique" resultType="hmap">
         SELECT count(*) AS count
         FROM kv_invoices
         WHERE invoice_no
