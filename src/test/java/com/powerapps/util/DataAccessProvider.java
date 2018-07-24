@@ -8,22 +8,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DataAccessProvider implements IDataAccessProvider {
-	public final IbatisClient ibatisClient;
+	public final IbatisClient sqlClient;
 	private static final Logger LOG = LoggerFactory.getLogger(DataAccessProvider.class);
 
-	public DataAccessProvider(IbatisClient ibatisClient) {
-		this.ibatisClient = ibatisClient;
+	public DataAccessProvider(IbatisClient sqlClient) {
+		this.sqlClient = sqlClient;
 	}
 
-	public List<Object> selectQuery() {
-		// TODO Auto-generated method stub
+	public List<Object> selectQuery(String queryName, Object object) {
 		return null;
 	}
 
 	public List<Object> query(String queryName, Object object) throws SQLException, IOException {
 
 		long queryStart = System.currentTimeMillis();
-		List<Object> result = ibatisClient.getSqlMapClient().queryForList(queryName, object);
+		List<Object> result = sqlClient.getSqlMapClient().queryForList(queryName, object);
 		long queryEnd = System.currentTimeMillis();
 		logQueryStatistics("NONE", queryName, queryStart, queryEnd);
 

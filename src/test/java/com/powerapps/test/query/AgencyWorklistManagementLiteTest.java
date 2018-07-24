@@ -27,7 +27,6 @@ public void check_work_list_lite_query_syntax_validity() throws SQLException, IO
 @Test
 public void work_list_lite_query_return_at_least_one_record() throws SQLException, IOException {
 	List<Object> resultList = provider.query("getWlmWorkListLite", 1);
-	//System.out.println(resultList.size());
 	Assert.assertNotEquals(0, resultList.size());
 }
 }
