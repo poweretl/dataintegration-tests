@@ -31,4 +31,5 @@ resources_
 .settings/
 *.bluej
 localchanges
+target/test-classes
 
