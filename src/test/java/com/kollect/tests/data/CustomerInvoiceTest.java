@@ -16,13 +16,13 @@ public class CustomerInvoiceTest {
 
   private ReadWriteServiceProvider service;
 
-  @Before
+  //@Before
   public void runBeforeEachTest() {
-    service = new ReadWriteServiceProvider(new DaoProvider(new AbstractSqlSessionProvider("mahb_prod")));
+   service = new ReadWriteServiceProvider(new DaoProvider(new AbstractSqlSessionProvider("mahb_prod")));
   }
 
 
-  @Test
+ // @Test
   public void shouldNotContainDuplicateInvoice() {
 
   }

@@ -16,12 +16,12 @@ public class InvoiceTest {
   private ReadWriteServiceProvider service;
 
 
-  @Before
+  //@Before
   public void runBeforeEachTest() {
     service = new ReadWriteServiceProvider(new DaoProvider(new AbstractSqlSessionProvider("mahb_prod")));
   }
 
-  @Test
+ // @Test
   public void shouldNotHaveDuplicates(){
       Long expectedCount = 0L; //this value comes from json
       Long actualResult = 0L;
@@ -34,7 +34,7 @@ public class InvoiceTest {
       Assert.assertEquals("Expected and actual are not same, \n Expected: "+expectedCount +" duplicates\n Got: "+actualResult+" duplicate(s)",expectedCount, actualResult);
   }
 
-  @Test
+ // @Test
   public void shouldHaveExactQuantityOfInvoices() {
       Long expectedResult = 300000l; //this value comes from json
       @SuppressWarnings("unchecked")
@@ -43,7 +43,7 @@ public class InvoiceTest {
       Assert.assertEquals("Expected and actual are not same, \n Expected: "+expectedResult +"\n Got: "+actualResult, expectedResult, actualResult);
   }
 
-  @Test
+ // @Test
   public void shouldBeTraceableToSourceHash(){
       String source_hash = "c56f50794c882dc2dfc0692e2816a602c9c1f0e1c238a6272d3b4a7fe5a245fa"; //this value comes from json
       Long expectedResult = 1l;

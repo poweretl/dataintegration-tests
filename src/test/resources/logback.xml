@@ -27,8 +27,11 @@
   </encoder>
  </appender>
 
+<logger name="com.ibatis">
+    <level value="debug"/>
+</logger>
 
- <root level="info">
+ <root level="debug">
   <appender-ref ref="CONSOLE_LOG" />
   <appender-ref ref="DEBUG_LOG" />
   <appender-ref ref="ERROR_LOG" />

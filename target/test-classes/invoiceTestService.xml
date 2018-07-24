@@ -19,4 +19,12 @@
         GROUP BY invoice_no
         HAVING count(*) > 1
     </select>
+
+    <select id="getInvoiceTrace" resultType="hmap">
+        SELECT count (*), inv.id, inv.load_id, trxload.id, trxload.source_hash
+        FROM kv_invoices as inv
+        INNER JOIN transaction_load as trxload on inv.load_id = trxload.id
+        WHERE trxload.source_hash = #{source_hash}
+        GROUP BY inv.id, inv.load_id, trxload.id, trxload.source_hash
+    </select>
 </mapper>
