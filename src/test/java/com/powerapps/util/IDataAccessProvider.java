@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IDataAccessProvider {
 
-	List<Object> selectQuery();
-	List<Object> query(String queryName, Object object) throws SQLException, IOException;
+	List<Object> selectQuery(String queryName, Object object);
+	<T> List<T> query(String queryName, Object object) throws SQLException, IOException;
 }
